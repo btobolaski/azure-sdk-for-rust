@@ -10,7 +10,7 @@ use azure_core::{
 use std::sync::Arc;
 use time::OffsetDateTime;
 
-pub const API_VERSION: &str = "7.0";
+pub const API_VERSION: &str = "7.5";
 const API_VERSION_PARAM: &str = "api-version";
 
 /// Client for Key Vault operations - getting a secret, listing secrets, etc.
