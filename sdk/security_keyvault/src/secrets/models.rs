@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::Deserialize;
 use time::OffsetDateTime;
 
@@ -8,6 +10,8 @@ pub struct KeyVaultSecretBaseIdentifierAttributedRaw {
     pub created: OffsetDateTime,
     #[serde(with = "azure_core::date::timestamp")]
     pub updated: OffsetDateTime,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub tags: Option<HashMap<String, String>>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -43,6 +47,8 @@ pub struct KeyVaultGetSecretResponseAttributes {
     #[serde(rename = "recoveryLevel")]
     #[allow(unused)]
     pub recovery_level: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub tags: Option<HashMap<String, String>>,
 }
 
 #[derive(Debug)]
